@@ -8,7 +8,16 @@ interface TanStackProviderProps {
 }
 
 export default function TanStackProvider({ children }: TanStackProviderProps) {
-  const [queryClient] = useState(() => new QueryClient());
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            gcTime: 0,
+          },
+        },
+      })
+  );
 
   return (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>

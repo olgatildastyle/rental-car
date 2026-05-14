@@ -1,7 +1,9 @@
+import CatalogClient from '@/components/CatalogClient/CatalogClient';
+
 export default function CatalogPage() {
   return (
     <main>
-      <h1>Catalog Page</h1>
+      <CatalogClient />
     </main>
   );
 }

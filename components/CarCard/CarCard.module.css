@@ -1,0 +1,79 @@
+.card {
+  width: 100%;
+  min-height: 424px;
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  width: 100%;
+  height: 268px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 16px;
+}
+
+.top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.title,
+.price {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--main);
+}
+
+.title {
+  max-width: 210px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.title span {
+  color: var(--button);
+}
+
+.price {
+  flex-shrink: 0;
+}
+
+.info {
+  min-height: 40px;
+  margin-bottom: 28px;
+  color: var(--gray);
+  font-size: 12px;
+  line-height: 1.33;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.link {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 44px;
+  border-radius: 12px;
+  background-color: var(--button);
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  transition: background-color 250ms ease;
+}
+
+.link:hover,
+.link:focus {
+  background-color: var(--button-hover);
+}
