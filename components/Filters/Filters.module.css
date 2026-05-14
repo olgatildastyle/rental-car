@@ -1,0 +1,112 @@
+.form {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 56px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  color: var(--gray);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.33;
+}
+
+.select,
+.priceSelect {
+  height: 44px;
+  appearance: none;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--inputs);
+  background-image: url('/icons/chevron-down.svg');
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  color: var(--main);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+  outline: none;
+  cursor: pointer;
+}
+
+.select {
+  width: 204px;
+  padding: 12px 40px 12px 16px;
+}
+
+.priceSelect {
+  width: 196px;
+  padding: 12px 40px 12px 16px;
+}
+
+.mileageBox {
+  display: flex;
+}
+
+.inputFrom,
+.inputTo {
+  width: 160px;
+  height: 44px;
+  border: none;
+  background-color: var(--inputs);
+  color: var(--main);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+  outline: none;
+}
+
+.inputFrom {
+  padding: 12px 24px;
+  border-right: 1px solid var(--gray-light);
+  border-radius: 12px 0 0 12px;
+}
+
+.inputTo {
+  padding: 12px 24px;
+  border-radius: 0 12px 12px 0;
+}
+
+.inputFrom::placeholder,
+.inputTo::placeholder {
+  color: var(--main);
+  opacity: 1;
+}
+
+.select:focus,
+.priceSelect:focus,
+.inputFrom:focus,
+.inputTo:focus {
+  box-shadow: 0 0 0 1px var(--button);
+}
+
+.button {
+  min-width: 156px;
+  height: 44px;
+  padding: 12px 51px;
+  border-radius: 12px;
+  background-color: var(--button);
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  transition: background-color 250ms ease;
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--button-hover);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
