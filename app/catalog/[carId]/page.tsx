@@ -1,3 +1,7 @@
+import { fetchCarById } from '@/lib/api';
+
+import CarDetails from '@/components/CarDetails/CarDetails';
+
 interface CarDetailsPageProps {
   params: Promise<{
     carId: string;
@@ -7,10 +11,11 @@ interface CarDetailsPageProps {
 export default async function CarDetailsPage({ params }: CarDetailsPageProps) {
   const { carId } = await params;
 
+  const car = await fetchCarById(carId);
+
   return (
     <main>
-      <h1>Car Details Page</h1>
-      <p>Car ID: {carId}</p>
+      <CarDetails car={car} />
     </main>
   );
 }
