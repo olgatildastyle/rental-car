@@ -1,3 +1,9 @@
+export interface CarLocation {
+  country: string;
+  city: string;
+  address: string;
+}
+
 export interface Car {
   id: string;
   year: number;
@@ -7,12 +13,11 @@ export interface Car {
   img: string;
   description: string;
   fuelConsumption: string;
-  engineSize: string;
-  accessories: string[];
-  functionalities: string[];
+  engine: string;
+  features: string[];
   rentalPrice: string;
   rentalCompany: string;
-  address: string;
+  location: CarLocation;
   rentalConditions: string[];
   mileage: number;
 }

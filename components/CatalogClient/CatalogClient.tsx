@@ -29,20 +29,17 @@ export default function CatalogClient() {
     queryFn: ({ pageParam }) =>
       fetchCars({
         page: pageParam,
-        limit: 12,
+        perPage: 12,
         brand: filters.brand || undefined,
-        rentalPrice: filters.rentalPrice || undefined,
+        price: filters.rentalPrice || undefined,
         minMileage: filters.minMileage ? Number(filters.minMileage) : undefined,
         maxMileage: filters.maxMileage ? Number(filters.maxMileage) : undefined,
       }),
     initialPageParam: 1,
-    getNextPageParam: (lastPage, allPages) => {
-      const loadedCars = allPages.reduce(
-        (total, page) => total + page.cars.length,
-        0
-      );
+    getNextPageParam: lastPage => {
+      const nextPage = lastPage.page + 1;
 
-      return loadedCars < lastPage.totalCars ? allPages.length + 1 : undefined;
+      return nextPage <= lastPage.totalPages ? nextPage : undefined;
     },
   });
 

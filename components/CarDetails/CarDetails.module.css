@@ -5,15 +5,17 @@
 
 .container {
   display: flex;
+  align-items: flex-start;
   gap: 72px;
 }
 
 .left {
   width: 640px;
+  flex-shrink: 0;
 }
 
 .image {
-  width: 100%;
+  width: 640px;
   height: 512px;
   object-fit: cover;
   border-radius: 19px;
@@ -22,14 +24,39 @@
 
 .right {
   width: 488px;
+  padding-top: 20px;
 }
 
 .title {
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   color: var(--main);
   font-size: 24px;
   font-weight: 600;
   line-height: 1.33;
+}
+
+.id {
+  margin-left: 16px;
+  color: var(--gray);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  color: var(--main);
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .price {
@@ -41,41 +68,24 @@
 }
 
 .description {
+  margin-bottom: 110px;
   color: var(--main);
   font-size: 16px;
   font-weight: 500;
   line-height: 1.25;
 }
 
-.meta {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 8px;
-
-  color: var(--gray);
-
-  font-size: 16px;
-  line-height: 1.25;
-}
-
-.id {
-  margin-bottom: 16px;
-
-  color: var(--gray);
-
-  font-size: 16px;
-  line-height: 1.25;
-}
-
 .block {
-  margin-top: 40px;
+  margin-bottom: 110px;
+}
+
+.block:last-child {
+  margin-bottom: 0;
 }
 
 .subtitle {
   margin-bottom: 20px;
-
   color: var(--main);
-
   font-size: 20px;
   font-weight: 600;
   line-height: 1.2;
@@ -85,9 +95,18 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-
   color: var(--main);
-
   font-size: 16px;
   line-height: 1.25;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon {
+  flex-shrink: 0;
+  fill: currentColor;
 }

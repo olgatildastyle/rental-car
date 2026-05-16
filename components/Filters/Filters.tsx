@@ -1,9 +1,5 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
-
-import { fetchCarBrands } from '@/lib/api';
-
 import css from './Filters.module.css';
 
 export interface FilterValues {
@@ -17,14 +13,34 @@ interface FiltersProps {
   onSubmit: (filters: FilterValues) => void;
 }
 
+const brands = [
+  'Aston Martin',
+  'Audi',
+  'BMW',
+  'Bentley',
+  'Buick',
+  'Chevrolet',
+  'Chrysler',
+  'GMC',
+  'HUMMER',
+  'Hyundai',
+  'Kia',
+  'Land Rover',
+  'Mercedes-Benz',
+  'MINI',
+  'Mitsubishi',
+  'Nissan',
+  'Pontiac',
+  'Porsche',
+  'Subaru',
+  'Toyota',
+  'Volkswagen',
+  'Volvo',
+];
+
 const prices = ['30', '40', '50', '60', '70', '80'];
 
 export default function Filters({ onSubmit }: FiltersProps) {
-  const { data: brands = [], isLoading } = useQuery({
-    queryKey: ['brands'],
-    queryFn: fetchCarBrands,
-  });
-
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -62,7 +78,7 @@ export default function Filters({ onSubmit }: FiltersProps) {
 
           {prices.map(price => (
             <option key={price} value={price}>
-              {price}
+              To ${price}
             </option>
           ))}
         </select>
@@ -78,6 +94,7 @@ export default function Filters({ onSubmit }: FiltersProps) {
             type="text"
             placeholder="From"
           />
+
           <input
             className={css.inputTo}
             name="maxMileage"
@@ -87,7 +104,7 @@ export default function Filters({ onSubmit }: FiltersProps) {
         </div>
       </label>
 
-      <button className={css.button} type="submit" disabled={isLoading}>
+      <button className={css.button} type="submit">
         Search
       </button>
     </form>

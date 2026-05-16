@@ -1,21 +1,78 @@
+'use client';
+
+import { useState } from 'react';
+
+import { createBookingRequest } from '@/lib/api';
+
+import css from './RentalForm.module.css';
+
 interface RentalFormProps {
   carId: string;
 }
 
 export default function RentalForm({ carId }: RentalFormProps) {
+  const [message, setMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    setIsSubmitting(true);
+    setMessage('');
+
+    try {
+      const comment = String(formData.get('comment') || '').trim();
+
+      await createBookingRequest(carId, {
+        name: String(formData.get('name')),
+        email: String(formData.get('email')),
+        ...(comment && { comment }),
+      });
+
+      setMessage('Booking request sent successfully!');
+
+      form.reset();
+    } catch {
+      setMessage('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <form>
-      <h2>Book your car now</h2>
-      <p>Stay connected! We are always ready to help you.</p>
+    <form className={css.form} onSubmit={handleSubmit}>
+      <h2 className={css.title}>Book your car now</h2>
 
-      <input type="text" name="name" placeholder="Name*" />
-      <input type="email" name="email" placeholder="Email*" />
-      <input type="text" name="bookingDate" placeholder="Booking date" />
-      <textarea name="comment" placeholder="Comment" />
+      <p className={css.text}>
+        Stay connected! We are always ready to help you.
+      </p>
 
-      <button type="submit">Send</button>
+      <div className={css.fields}>
+        <input className={css.input} name="name" placeholder="Name*" required />
 
-      <input type="hidden" name="carId" value={carId} />
+        <input
+          className={css.input}
+          type="email"
+          name="email"
+          placeholder="Email*"
+          required
+        />
+
+        <textarea
+          className={css.textarea}
+          name="comment"
+          placeholder="Comment"
+        />
+      </div>
+
+      <button className={css.button} type="submit" disabled={isSubmitting}>
+        {isSubmitting ? 'Sending...' : 'Send'}
+      </button>
+
+      {message && <p className={css.message}>{message}</p>}
     </form>
   );
 }
