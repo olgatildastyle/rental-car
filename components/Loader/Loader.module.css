@@ -1,0 +1,30 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.inlineLoader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  padding: 40px 0;
+}
+
+.loader {
+  width: 120px;
+  height: 120px;
+}
+
+.small {
+  width: 40px;
+  height: 40px;
+}

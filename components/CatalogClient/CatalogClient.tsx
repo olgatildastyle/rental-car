@@ -6,6 +6,7 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import { fetchCars } from '@/lib/api';
 import CarList from '@/components/CarList/CarList';
 import Filters, { type FilterValues } from '@/components/Filters/Filters';
+import Loader from '@/components/Loader/Loader';
 
 import css from './CatalogClient.module.css';
 
@@ -45,9 +46,14 @@ export default function CatalogClient() {
 
   const cars = data?.pages.flatMap(page => page.cars) ?? [];
 
-  if (isLoading) return <p>Loading cars...</p>;
-  if (isError) return <p>Failed to load cars.</p>;
-
+  if (isLoading) return <Loader />;
+  if (isError) {
+    return (
+      <div className={css.error}>
+        Failed to load cars. Please try again later.
+      </div>
+    );
+  }
   return (
     <section className={css.section}>
       <div className="container">
@@ -64,7 +70,7 @@ export default function CatalogClient() {
             onClick={() => fetchNextPage()}
             disabled={isFetchingNextPage}
           >
-            {isFetchingNextPage ? 'Loading...' : 'Load more'}
+            {isFetchingNextPage ? <Loader small /> : 'Load more'}
           </button>
         )}
       </div>

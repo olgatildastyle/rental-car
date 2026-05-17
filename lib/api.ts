@@ -2,7 +2,6 @@ import axios from 'axios';
 import { type Car } from '@/types/car';
 
 const BASE_URL = 'https://car-rental-api.goit.study';
-
 const api = axios.create({
   baseURL: BASE_URL,
 });
