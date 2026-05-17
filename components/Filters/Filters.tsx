@@ -59,29 +59,45 @@ export default function Filters({ onSubmit }: FiltersProps) {
       <label className={css.field}>
         <span className={css.label}>Car brand</span>
 
-        <select className={css.select} name="brand" defaultValue="">
-          <option value="">Choose a brand</option>
+        <div className={css.selectWrapper}>
+          <select className={css.select} name="brand" defaultValue="">
+            <option value="">Choose a brand</option>
 
-          {brands.map(brand => (
-            <option key={brand} value={brand}>
-              {brand}
-            </option>
-          ))}
-        </select>
+            {brands.map(brand => (
+              <option key={brand} value={brand}>
+                {brand}
+              </option>
+            ))}
+          </select>
+
+          <svg className={css.arrow} width="16" height="16">
+            <use href="/icons/sprite.svg#icon-chevron-down" />
+          </svg>
+        </div>
       </label>
 
       <label className={css.field}>
         <span className={css.label}>Price/ 1 hour</span>
 
-        <select className={css.priceSelect} name="rentalPrice" defaultValue="">
-          <option value="">Choose a price</option>
+        <div className={css.selectWrapper}>
+          <select
+            className={css.priceSelect}
+            name="rentalPrice"
+            defaultValue=""
+          >
+            <option value="">Choose a price</option>
 
-          {prices.map(price => (
-            <option key={price} value={price}>
-              To ${price}
-            </option>
-          ))}
-        </select>
+            {prices.map(price => (
+              <option key={price} value={price}>
+                To ${price}
+              </option>
+            ))}
+          </select>
+
+          <svg className={css.arrow} width="16" height="16">
+            <use href="/icons/sprite.svg#icon-chevron-down" />
+          </svg>
+        </div>
       </label>
 
       <label className={css.field}>

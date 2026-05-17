@@ -19,6 +19,10 @@
   line-height: 1.33;
 }
 
+.selectWrapper {
+  position: relative;
+}
+
 .select,
 .priceSelect {
   height: 44px;
@@ -42,6 +46,20 @@
 .priceSelect {
   width: 196px;
   padding: 12px 40px 12px 16px;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  fill: none;
+  stroke: var(--main);
+}
+
+.selectWrapper:focus-within .arrow {
+  transform: translateY(-50%) rotate(180deg);
 }
 
 .mileageBox {

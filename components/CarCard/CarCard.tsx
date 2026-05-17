@@ -10,9 +10,7 @@ interface CarCardProps {
 }
 
 export default function CarCard({ car }: CarCardProps) {
-  const location = `${car.location.city}, ${car.location.country}`;
-
-  const mileage = car.mileage.toLocaleString('en-US').replace(',', ' ');
+  const mileage = car.mileage.toLocaleString('uk-UA');
 
   return (
     <article className={css.card}>
@@ -22,6 +20,7 @@ export default function CarCard({ car }: CarCardProps) {
         alt={`${car.brand} ${car.model}`}
         width={276}
         height={268}
+        loading="eager"
       />
 
       <div className={css.top}>
@@ -32,11 +31,18 @@ export default function CarCard({ car }: CarCardProps) {
         <p className={css.price}>${car.rentalPrice}</p>
       </div>
 
-      <p className={css.info}>
-        {location} | {car.rentalCompany} | {car.type}
-      </p>
+      <div className={css.info}>
+        <p>
+          <span>{car.location.city}</span>
+          <span>{car.location.country}</span>
+          <span>{car.rentalCompany}</span>
+        </p>
 
-      <p className={css.info}>Mileage: {mileage} km</p>
+        <p>
+          <span>{car.type}</span>
+          <span>{mileage} km</span>
+        </p>
+      </div>
 
       <Link className={css.link} href={`/catalog/${car.id}`} target="_blank">
         Read more
