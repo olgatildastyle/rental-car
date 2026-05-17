@@ -3,6 +3,43 @@
   min-height: 424px;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.favorite {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 16px;
+  height: 16px;
+
+  background-color: transparent;
+  color: var(--white);
+  transition:
+    transform 250ms ease,
+    color 250ms ease;
+}
+
+.favoriteActive {
+  color: var(--button);
+}
+
+.favorite:hover,
+.favorite:focus {
+  transform: scale(1.1);
+}
+
+.favorite svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  stroke: currentColor;
 }
 
 .image {
@@ -60,18 +97,6 @@
 
 .info p:first-child {
   margin-bottom: 4px;
-}
-
-.info p:first-child span::after {
-  content: '|';
-  margin: 0 6px;
-  color: var(--gray-light);
-}
-
-.info p:last-child span:first-child::after {
-  content: '|';
-  margin: 0 6px;
-  color: var(--gray-light);
 }
 
 .info p:first-child span::after,

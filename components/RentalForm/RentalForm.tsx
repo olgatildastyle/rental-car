@@ -51,13 +51,20 @@ export default function RentalForm({ carId }: RentalFormProps) {
       </p>
 
       <div className={css.fields}>
-        <input className={css.input} name="name" placeholder="Name*" required />
+        <input
+          className={css.input}
+          name="name"
+          placeholder="Name*"
+          autoComplete="name"
+          required
+        />
 
         <input
           className={css.input}
           type="email"
           name="email"
           placeholder="Email*"
+          autoComplete="name"
           required
         />
 

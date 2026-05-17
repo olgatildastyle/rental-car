@@ -90,9 +90,10 @@
 }
 
 .message {
-  margin-top: 16px;
+  margin-top: 20px;
   text-align: center;
   color: var(--button);
   font-size: 14px;
   font-weight: 500;
+  line-height: 1.4;
 }

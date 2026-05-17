@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -10,10 +13,50 @@ interface CarCardProps {
 }
 
 export default function CarCard({ car }: CarCardProps) {
+  const [isFavorite, setIsFavorite] = useState(() => {
+    if (typeof window === 'undefined') return false;
+
+    const savedFavorites = JSON.parse(
+      localStorage.getItem('favoriteCars') || '[]'
+    ) as string[];
+
+    return savedFavorites.includes(car.id);
+  });
+
   const mileage = car.mileage.toLocaleString('uk-UA');
+
+  const toggleFavorite = () => {
+    const savedFavorites = JSON.parse(
+      localStorage.getItem('favoriteCars') || '[]'
+    ) as string[];
+
+    const updatedFavorites = savedFavorites.includes(car.id)
+      ? savedFavorites.filter(id => id !== car.id)
+      : [...savedFavorites, car.id];
+
+    localStorage.setItem('favoriteCars', JSON.stringify(updatedFavorites));
+    setIsFavorite(updatedFavorites.includes(car.id));
+  };
 
   return (
     <article className={css.card}>
+      <button
+        className={`${css.favorite} ${isFavorite ? css.favoriteActive : ''}`}
+        type="button"
+        onClick={toggleFavorite}
+        aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+      >
+        <svg width="16" height="16">
+          <use
+            href={
+              isFavorite
+                ? '/icons/sprite.svg#icon-heart-active'
+                : '/icons/sprite.svg#icon-heart-default'
+            }
+          />
+        </svg>
+      </button>
+
       <Image
         className={css.image}
         src={car.img}
