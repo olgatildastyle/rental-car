@@ -84,4 +84,4 @@ npm run build
 Olga Demchenko
 
 - GitHub: https://github.com/olgatildastyle
-- LinkedIn: https://www.linkedin.com/in/olga-demchenko-45b796396/
+
