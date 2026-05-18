@@ -32,14 +32,16 @@ https://github.com/olgatildastyle/rental-car
 
 ## Technologies Used
 
-- Next.js 16
-- React
-- TypeScript
-- TanStack Query
-- Axios
-- CSS Modules
-- Lottie React
-- React Hot Toast
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=nextjs,react,ts" />
+</p>
+
+<p align="left">
+  <img src="https://img.shields.io/badge/TanStack_Query-FF4154?style=for-the-badge&logo=reactquery&logoColor=white" />
+  <img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white" />
+  <img src="https://img.shields.io/badge/CSS_Modules-000000?style=for-the-badge&logo=cssmodules&logoColor=white" />
+  <img src="https://img.shields.io/badge/Lottie-00DDB3?style=for-the-badge&logo=airbnb&logoColor=white" />
+</p>
 
 ## Routes
 
