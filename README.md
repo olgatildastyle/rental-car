@@ -1,67 +1,87 @@
-RentalCar
+# RentalCar
 
-RentalCar is a modern car rental web application built with Next.js and TypeScript.
-The application allows users to browse available cars, filter them by different criteria, view detailed information, and submit rental requests.
+RentalCar is a modern car rental web application built with Next.js and TypeScript. The application allows users to browse available rental cars, filter them by different criteria, view detailed information about each car, add cars to favorites, and submit booking requests through a rental form.
 
-Live Demo
+The project was developed according to a Figma design and includes a modern responsive interface, backend integration, pagination, filtering, loaders, notifications, and custom UI components.
+
+## Live Demo
 
 https://rental-car-liard.vercel.app/
 
-GitHub Repository
+## GitHub Repository
 
 https://github.com/olgatildastyle/rental-car
 
-Features
-Responsive modern UI based on Figma design
-Home page with hero section
-Catalog page with car listings
-Car details page
-Backend integration
-Filtering by:
-brand
-rental price
-mileage range
-Infinite pagination with Load More
-Favorites functionality using localStorage
-Rental booking form
-Success notification after booking
-Custom loader animation
-Error and Not Found pages
-Metadata for SEO
-SVG sprite icons
+## Features
 
-Technologies Used
-Next.js 16
-React
-TypeScript
-TanStack Query
-CSS Modules
-Axios
-Lottie React
-React Hot Toast
+- Home page with hero section
+- Car catalog page with backend data
+- Car details page
+- Filtering by brand
+- Filtering by rental price
+- Filtering by mileage range
+- Infinite pagination with Load More
+- Favorites functionality using localStorage
+- Rental booking form
+- Success notification after booking
+- Custom animated loader
+- Error and Not Found pages
+- Metadata for SEO
+- SVG sprite icons
+- Modern UI based on Figma design
 
-Project Structure
-app/
-components/
-lib/
-public/
-styles/
-types/
+## Technologies Used
 
-Getting Started
+- Next.js 16
+- React
+- TypeScript
+- TanStack Query
+- Axios
+- CSS Modules
+- Lottie React
+- React Hot Toast
 
-1. Clone the repository
-   git clone https://github.com/olgatildastyle/rental-car.git
-2. Navigate to the project folder
-   cd rental-car
-3. Install dependencies
-   npm install
-4. Start development server
-   npm run dev
+## Routes
 
-Author
+- `/` — Home page
+- `/catalog` — Car catalog
+- `/catalog/[carId]` — Car details page
+
+## Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/olgatildastyle/rental-car.git
+```
+
+Navigate to the project folder:
+
+```bash
+cd rental-car
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Build the production version:
+
+```bash
+npm run build
+```
+
+## Author
 
 Olga Demchenko
 
-GitHub: https://github.com/olgatildastyle
-LinkedIn: https://www.linkedin.com/in/olha-demchenko-45b796396/
+- GitHub: https://github.com/olgatildastyle
+- LinkedIn: https://www.linkedin.com/in/olga-demchenko-45b796396/
